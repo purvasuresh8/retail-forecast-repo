@@ -2,49 +2,80 @@
 
 ## Overview
 
-This repository contains an end-to-end retail sales forecasting project developed as a capstone assignment. The project demonstrates the complete machine learning pipeline, from raw data ingestion and quality validation to feature engineering, exploratory data analysis (EDA), forecasting model development, and presentation of results.
+This repository contains an end-to-end retail sales forecasting project that leverages **Supabase** as a cloud-based backend platform for data storage and management. The project demonstrates the complete machine learning workflow, including data ingestion, data quality assessment, feature engineering, exploratory data analysis (EDA), and sales forecasting.
 
-The primary objective is to analyze historical retail sales data and build predictive models that help forecast future sales trends, enabling better business planning and inventory management.
+The goal is to analyze historical retail sales data and build predictive models that forecast future demand, helping businesses make data-driven inventory and sales planning decisions.
 
 ---
 
-## Project Workflow
+## Architecture
 
-The project is organized into multiple notebooks representing each stage of the data science lifecycle:
+```text
+Retail Dataset
+       │
+       ▼
+ Data Ingestion
+       │
+       ▼
+    Supabase
+(Database Storage)
+       │
+       ▼
+ Data Quality Checks
+       │
+       ▼
+Feature Engineering
+       │
+       ▼
+      EDA
+       │
+       ▼
+Forecasting Models
+       │
+       ▼
+ Business Insights
+```
 
-1. **Data Ingestion**
-   - Import retail sales dataset
-   - Load and inspect raw data
-   - Initial data validation
+---
 
-2. **Data Quality Assessment**
-   - Identify missing values
-   - Detect duplicates
-   - Perform data cleaning
-   - Validate data consistency
+## Technologies Used
 
-3. **Feature Engineering**
-   - Create new predictive features
-   - Transform date-based attributes
-   - Generate business-relevant metrics
-   - Prepare model-ready datasets
+### Data Engineering
+- Python
+- Supabase
+- Pandas
+- NumPy
 
-4. **Exploratory Data Analysis (EDA)**
-   - Analyze sales trends
-   - Explore seasonality patterns
-   - Visualize product and store performance
-   - Identify key business insights
+### Data Analysis & Visualization
+- Matplotlib
+- Seaborn
+- Jupyter Notebook
 
-5. **Modeling & Forecasting**
-   - Train forecasting models
-   - Evaluate model performance
-   - Compare forecasting results
-   - Generate future sales predictions
+### Machine Learning
+- Scikit-learn
+- Time Series Forecasting Techniques
 
-6. **Results & Presentation**
-   - Summarize findings
-   - Present forecasting outcomes
-   - Highlight business recommendations
+### Database & Cloud
+- Supabase PostgreSQL Database
+- Supabase API Integration
+
+---
+
+## Key Features
+
+✅ Automated Data Ingestion
+
+✅ Cloud-based Data Storage using Supabase
+
+✅ Data Quality Validation and Cleaning
+
+✅ Feature Engineering for Forecasting
+
+✅ Exploratory Data Analysis (EDA)
+
+✅ Retail Sales Forecasting Models
+
+✅ Business Insights and Reporting
 
 ---
 
@@ -65,108 +96,77 @@ retail-forecast-repo/
 
 ---
 
-## Dataset
+## Project Workflow
 
-**File:** `Retail_Data_Set.csv`
+### 1. Data Ingestion
+- Load retail sales dataset
+- Connect and store data in Supabase
+- Validate schema and data integrity
 
-The dataset contains historical retail transaction and sales information used for trend analysis, forecasting, and predictive modeling.
+### 2. Data Quality Management
+- Missing value analysis
+- Duplicate detection
+- Data cleansing and validation
 
-Potential attributes may include:
+### 3. Feature Engineering
+- Date-based feature extraction
+- Sales trend indicators
+- Aggregated business metrics
 
-- Sales
-- Date
-- Store Information
-- Product Categories
-- Inventory Metrics
-- Promotional Data
+### 4. Exploratory Data Analysis
+- Sales distribution analysis
+- Seasonal trend identification
+- Product and store performance evaluation
 
----
+### 5. Forecasting & Modeling
+- Model training and evaluation
+- Sales prediction generation
+- Performance comparison using forecasting metrics
 
-## Technologies Used
-
-- Python
-- Jupyter Notebook
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-- Scikit-learn
-
-Additional forecasting libraries may be used depending on the modeling notebook implementation.
-
----
-
-## Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/<your-username>/retail-forecast-repo.git
-cd retail-forecast-repo
-```
-
-Install dependencies:
-
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn jupyter
-```
-
-Launch Jupyter Notebook:
-
-```bash
-jupyter notebook
-```
+### 6. Results & Recommendations
+- Forecast visualization
+- Business insights
+- Strategic recommendations
 
 ---
 
-## How to Run
+## Supabase Integration
 
-Execute the notebooks in the following order:
+This project uses **Supabase** as the backend database platform to:
 
-1. `capstone-1_data_ingestion.ipynb`
-2. `capstone-2_data_quality.ipynb`
-3. `capstone-3_feature_engineering.ipynb`
-4. `capstone_4_EDA.ipynb`
-5. `capstone_5_modeling_&_forecasting.ipynb`
-6. `capstone_6_ppt_result.ipynb`
+- Store retail sales data
+- Manage structured datasets
+- Enable scalable cloud-based data access
+- Support data retrieval for analytics and forecasting workflows
 
-Following this sequence ensures that the data preparation and feature generation steps are completed before model training.
+Benefits of using Supabase:
 
----
-
-## Key Objectives
-
-- Develop a robust retail sales forecasting solution
-- Improve understanding of sales trends and seasonality
-- Apply data cleaning and feature engineering techniques
-- Evaluate forecasting model performance
-- Generate actionable business insights
+- PostgreSQL-powered database
+- Secure API access
+- Real-time capabilities
+- Easy integration with Python applications
 
 ---
 
-## Sample Business Applications
+## Business Value
 
-- Inventory Optimization
-- Demand Forecasting
-- Revenue Planning
-- Promotional Strategy Evaluation
-- Supply Chain Decision Support
+This forecasting solution helps organizations:
 
----
-
-## Results
-
-The modeling phase evaluates forecasting accuracy using relevant performance metrics and identifies patterns that influence sales behavior. The final notebook summarizes results and business insights derived from the analysis.
+- Improve inventory planning
+- Reduce stock shortages
+- Optimize supply chain operations
+- Forecast future sales demand
+- Support data-driven decision making
 
 ---
 
 ## Future Enhancements
 
 - Deploy forecasting model as a web application
-- Automate data ingestion pipelines
-- Integrate real-time sales data
-- Experiment with advanced forecasting models
-- Build interactive dashboards using Power BI or Tableau
+- Build a real-time dashboard
+- Integrate Supabase real-time updates
+- Experiment with advanced forecasting models such as Prophet and XGBoost
+- Automate the end-to-end forecasting pipeline
 
 ---
 
@@ -175,9 +175,3 @@ The modeling phase evaluates forecasting accuracy using relevant performance met
 **Purva Suresh**
 
 GitHub: https://github.com/purvasuresh8
-
----
-
-## License
-
-This project is intended for educational and portfolio purposes.
