@@ -5,7 +5,7 @@ import pandas as pd
 
 def create_date_features(
         df,
-        date_col="Date"
+        date_col="TransactionDate"
 ):
 
     df[date_col] = pd.to_datetime(
@@ -33,7 +33,7 @@ def create_date_features(
 
 def create_lag_features(
         df,
-        target_col="Sales"
+        target_col="TransactionAmount"
 ):
 
     df["sales_lag_1"] = (

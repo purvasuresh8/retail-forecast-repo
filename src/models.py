@@ -18,3 +18,4 @@ def xgboost_model():
         max_depth=6,
         random_state=42
     )
+    
