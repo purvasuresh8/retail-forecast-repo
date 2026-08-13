@@ -6,3 +6,5 @@ scikit-learn
 python-dotenv
 supabase
 xgboost
+streamlit
+plotly

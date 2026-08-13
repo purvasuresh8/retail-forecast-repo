@@ -15,5 +15,15 @@ df = create_date_features(df)
 
 daily_sales = aggregate_daily_sales(df)
 
+daily_sales = create_forecast_features(
+    daily_sales
+)
+
 print(daily_sales.head())
 print(df.head())
+
+
+daily_sales.to_csv(
+    "daily_sales_features.csv",
+    index=False
+)
