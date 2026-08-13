@@ -1,177 +1,322 @@
-# Retail Forecasting Project
+# 📈 Retail Forecasting Platform
 
 ## Overview
 
-This repository contains an end-to-end retail sales forecasting project that leverages **Supabase** as a cloud-based backend platform for data storage and management. The project demonstrates the complete machine learning workflow, including data ingestion, data quality assessment, feature engineering, exploratory data analysis (EDA), and sales forecasting.
+Retail Forecasting Platform is an end-to-end machine learning project designed to analyze retail transaction data, generate sales forecasts, and provide actionable business insights through an interactive dashboard.
 
-The goal is to analyze historical retail sales data and build predictive models that forecast future demand, helping businesses make data-driven inventory and sales planning decisions.
+The project transforms raw retail transactions into forecasting-ready datasets using data preprocessing, feature engineering, and time-series modeling techniques. Forecasts and analytics are delivered through a Streamlit-based web application.
 
 ---
 
-## Architecture
+## 🚀 Features
+
+- Automated retail data ingestion
+- Data quality validation and cleaning
+- Time-series feature engineering
+- Daily revenue aggregation
+- XGBoost-based forecasting
+- Model persistence using Joblib
+- Interactive Streamlit dashboard
+- Forecast performance monitoring
+- Feature importance analysis
+- Modular, production-style Python codebase
+
+---
+
+## 🏗️ Architecture
 
 ```text
-Retail Dataset
-       │
-       ▼
- Data Ingestion
-       │
-       ▼
-    Supabase
-(Database Storage)
-       │
-       ▼
- Data Quality Checks
-       │
-       ▼
-Feature Engineering
-       │
-       ▼
-      EDA
-       │
-       ▼
-Forecasting Models
-       │
-       ▼
- Business Insights
+Retail Transaction Data
+            │
+            ▼
+     Data Ingestion
+            │
+            ▼
+   Data Quality Checks
+            │
+            ▼
+   Feature Engineering
+            │
+            ▼
+ Daily Revenue Aggregation
+            │
+            ▼
+ Lag & Rolling Features
+            │
+            ▼
+     XGBoost Model
+            │
+            ▼
+   Forecast Generation
+            │
+            ▼
+   Model Serialization
+            │
+            ▼
+   Streamlit Dashboard
 ```
 
 ---
 
-## Technologies Used
+## 🛠️ Tech Stack
 
-### Data Engineering
+### Programming
+
 - Python
-- Supabase
+
+### Data Processing
+
 - Pandas
 - NumPy
 
-### Data Analysis & Visualization
-- Matplotlib
-- Seaborn
-- Jupyter Notebook
-
 ### Machine Learning
+
+- XGBoost
 - Scikit-learn
-- Time Series Forecasting Techniques
+- Joblib
 
-### Database & Cloud
-- Supabase PostgreSQL Database
-- Supabase API Integration
+### Visualization
 
----
+- Plotly
+- Streamlit
 
-## Key Features
+### Data Storage
 
-✅ Automated Data Ingestion
+- Supabase
 
-✅ Cloud-based Data Storage using Supabase
+### Development
 
-✅ Data Quality Validation and Cleaning
-
-✅ Feature Engineering for Forecasting
-
-✅ Exploratory Data Analysis (EDA)
-
-✅ Retail Sales Forecasting Models
-
-✅ Business Insights and Reporting
+- Git
+- GitHub
+- Virtual Environments
 
 ---
 
-## Repository Structure
+## 📂 Project Structure
 
 ```text
 retail-forecast-repo/
 │
+├── app.py
+├── train_model.py
+├── daily_sales_features.csv
+├── requirements.txt
 ├── README.md
-├── Retail_Data_Set.csv
-├── capstone-1_data_ingestion.ipynb
-├── capstone-2_data_quality.ipynb
-├── capstone-3_feature_engineering.ipynb
-├── capstone_4_EDA.ipynb
-├── capstone_5_modeling_&_forecasting.ipynb
-└── capstone_6_ppt_result.ipynb
+│
+├── src/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── ingest.py
+│   ├── quality.py
+│   ├── features.py
+│   ├── preprocess.py
+│   ├── train_xgb.py
+│   ├── model_registry.py
+│   └── supabase_utils.py
+│
+├── models/
+│   └── xgb_forecast.pkl
+│
+├── pages/
+│   ├── 1_Sales_Analytics.py
+│   ├── 2_Forecasting.py
+│   └── 3_Model_Metrics.py
+│
+└── .streamlit/
+    └── config.toml
 ```
 
 ---
 
-## Project Workflow
+## 🔄 Data Pipeline
 
-### 1. Data Ingestion
-- Load retail sales dataset
-- Connect and store data in Supabase
-- Validate schema and data integrity
+### Data Ingestion
 
-### 2. Data Quality Management
+- Load retail transaction dataset
+- Validate schema and structure
+- Generate raw dataset snapshot
+
+### Data Quality
+
+- Duplicate detection and removal
 - Missing value analysis
-- Duplicate detection
-- Data cleansing and validation
+- Dataset validation checks
 
-### 3. Feature Engineering
-- Date-based feature extraction
-- Sales trend indicators
-- Aggregated business metrics
+### Feature Engineering
 
-### 4. Exploratory Data Analysis
-- Sales distribution analysis
-- Seasonal trend identification
-- Product and store performance evaluation
+Generated forecasting features include:
 
-### 5. Forecasting & Modeling
-- Model training and evaluation
-- Sales prediction generation
-- Performance comparison using forecasting metrics
+- Year
+- Month
+- Week
+- Day of Week
+- Lag-1 Revenue
+- Lag-7 Revenue
+- 7-Day Rolling Average
+- 30-Day Rolling Average
 
-### 6. Results & Recommendations
-- Forecast visualization
-- Business insights
-- Strategic recommendations
+### Data Aggregation
+
+Individual transactions are aggregated into daily revenue values to support time-series forecasting.
 
 ---
 
-## Supabase Integration
+## 🤖 Machine Learning Pipeline
 
-This project uses **Supabase** as the backend database platform to:
+### Forecasting Model
 
-- Store retail sales data
-- Manage structured datasets
-- Enable scalable cloud-based data access
-- Support data retrieval for analytics and forecasting workflows
+**XGBoost Regressor**
 
-Benefits of using Supabase:
+The model predicts future sales using engineered temporal and historical revenue features.
 
-- PostgreSQL-powered database
-- Secure API access
-- Real-time capabilities
-- Easy integration with Python applications
+### Evaluation Metrics
 
----
+- Mean Absolute Error (MAE)
+- Root Mean Squared Error (RMSE)
+- R² Score
 
-## Business Value
+### Model Persistence
 
-This forecasting solution helps organizations:
-
-- Improve inventory planning
-- Reduce stock shortages
-- Optimize supply chain operations
-- Forecast future sales demand
-- Support data-driven decision making
+Models are saved using Joblib to support reproducibility and deployment without retraining.
 
 ---
 
-## Future Enhancements
+## 📊 Dashboard Features
 
-- Deploy forecasting model as a web application
-- Build a real-time dashboard
-- Integrate Supabase real-time updates
-- Experiment with advanced forecasting models such as Prophet and XGBoost
-- Automate the end-to-end forecasting pipeline
+### Sales Analytics
+
+- Total Revenue
+- Average Daily Revenue
+- Peak Revenue
+- Revenue Trend Visualization
+- Monthly Revenue Analysis
+
+### Forecasting
+
+- Actual vs Predicted Revenue
+- Forecast Trends
+- Historical Revenue Analysis
+
+### Model Monitoring
+
+- MAE
+- RMSE
+- R² Score
+- Feature Importance Visualization
 
 ---
 
-## Author
+## 📈 Sample Business Use Cases
+
+- Demand Forecasting
+- Inventory Planning
+- Revenue Trend Analysis
+- Business Performance Monitoring
+- Operational Decision Support
+
+---
+
+## ▶️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/purvasuresh8/retail-forecast-repo.git
+cd retail-forecast-repo
+```
+
+Create a virtual environment:
+
+```bash
+python -m venv venv
+```
+
+Activate the environment:
+
+### macOS/Linux
+
+```bash
+source venv/bin/activate
+```
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 🏃 Run the Machine Learning Pipeline
+
+Train and save the forecasting model:
+
+```bash
+python train_model.py
+```
+
+This will:
+
+- Load engineered features
+- Train the XGBoost model
+- Evaluate forecasting performance
+- Save the trained model
+
+---
+
+## 🌐 Run the Dashboard
+
+Start Streamlit:
+
+```bash
+streamlit run app.py
+```
+
+Open:
+
+```text
+http://localhost:8501
+```
+
+---
+
+## 📌 Key Learning Outcomes
+
+- Built a modular machine learning pipeline from scratch
+- Applied time-series feature engineering techniques
+- Developed an XGBoost forecasting model
+- Implemented model persistence using Joblib
+- Created a multi-page Streamlit analytics application
+- Connected data engineering and machine learning workflows into a production-oriented solution
+
+---
+
+## 🔮 Future Enhancements
+
+- MLflow experiment tracking
+- Automated model retraining
+- Advanced forecasting models (Prophet, LightGBM)
+- AI-powered Retail Copilot
+- Real-time forecasting APIs
+- Cloud deployment
+- Forecast storage and retrieval through Supabase
+
+---
+
+## 👩‍💻 Author
 
 **Purva Suresh**
 
 GitHub: https://github.com/purvasuresh8
+
+---
+
+## 📄 License
+
+This project is intended for educational, research, and portfolio purposes.

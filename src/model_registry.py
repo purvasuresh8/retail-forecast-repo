@@ -1,22 +1,19 @@
 import joblib
 
 
-def save_model(
-        model,
-        filename
-):
+def save_model(model, path):
+    """
+    Save a trained model to disk.
+    """
 
-    joblib.dump(
-        model,
-        filename
-    )
+    joblib.dump(model, path)
 
 
-def load_model(
-        filename
-):
+def load_model(path):
+    """
+    Load a saved model from disk.
+    """
 
-    return joblib.load(
-        filename
-    )
+    return joblib.load(path)
+    
     
